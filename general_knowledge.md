@@ -56,6 +56,11 @@ query as bags of words.
 2. **word-context**:
 it is similar to term-document, but here the focus is on the term not on the document (i.e. we want to find similarities between words and not similarities between documents) and the documents are replaced by context which can be either words, phrases, sentences, paragraphs, chapters, documents, grammatical dependencies, ... The word-context is deeply related to the *distributional hypothesis* which states that words that occur in similar contexts tend to have similar meanings (see Harris 1954, Wittgenstein 1953).
 3. **pair-pattern**: the rows are pairs of words (e.g. carpenter:wood) and the columns are patterns i.e. relations between pairs of words (e.g. X cuts Y)
+
+There are different kind of similarities: attributional similarity (e.g. synonyms and antonyms), relation similarity (between pair of words e.g. cat:meow and dog:bark)
+
+**token**: single instance of a symbol/word
+**type**: general class of token
     
 
 ## word representation in vector space
