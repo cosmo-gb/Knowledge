@@ -34,6 +34,13 @@ https://arxiv.org/pdf/1910.12656.pdf
 
 # General Knowledge on NLP
 
+## General LLM
+
+https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/
+
+https://docs.google.com/presentation/d/12sCcP2DsB1AvnHZ6YHMhS9KiKjbgH5P97kZRDBZkno4/edit#slide=id.p
+
+
 ## distributional structure main core idea
 
 Zellig Harris 1954, distributional structure
@@ -73,6 +80,17 @@ https://arxiv.org/abs/1301.3781
 Attention is all you need
 Vaswani et al 2017
 https://arxiv.org/abs/1706.03762
+
+see also:
+https://www.youtube.com/watch?v=fjJOgb-E41w
+
+## Transformer
+
+https://jalammar.github.io/illustrated-transformer/
+
+https://www.youtube.com/watch?v=iH-wmtxHunk
+
+https://www.youtube.com/watch?v=kWLed8o5M2Y
 
 
 # how to stay update in AI
