@@ -86,10 +86,12 @@ https://www.youtube.com/watch?v=fjJOgb-E41w
 
 ## Transformer
 
+very detailed and clear:
 https://jalammar.github.io/illustrated-transformer/
 
 https://www.youtube.com/watch?v=iH-wmtxHunk
 
+very good, derived from scratch from intuition of what we need:
 https://www.youtube.com/watch?v=kWLed8o5M2Y
 
 
