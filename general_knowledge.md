@@ -128,10 +128,48 @@ https://arxiv.org/abs/1409.1259
 
 ## Transformer
 
+The big picture of a transformer is the following:
+
+<img width="597" alt="transformer" src="https://github.com/cosmo-gb/Knowledge/assets/55383209/63a1e55f-9470-42f2-b599-2cafa37801e9">
+
+In this example, you have 6 layers of encoder and 6 layers of decoder (the number 6 is arbitrary here). Each encoder is made of 2 sub-layers: the *feed forward* neural network and the *self-attention*, as shown here:
+
+<img width="394" alt="encoder" src="https://github.com/cosmo-gb/Knowledge/assets/55383209/eeb60bd8-25c0-44e1-a552-24a499446f9e">
+
+The role of the *self-attention* sub-layer is to push the model to pay attention to other words in the input sequence than the word (i.e. token) it is processing. The main difference between an encoder and a decoder is the presence of a encoder-decoder attention sub-layer in the decoder:
+
+<img width="405" alt="encoder_decoder" src="https://github.com/cosmo-gb/Knowledge/assets/55383209/57900a14-a5b5-440a-af4e-a0ece092a1cb">
+
+This encoder-decoder sub-layer helps the decoder focus on relevant parts of the input sequence.
+
+### start with embedding
+
+Before any computations, one needs to turn each input word/token into a vector using an *embedding algorithm*. This is the role of the bottom-most encoder (i.e. the first encoder). Each encoder receive a list of vectors each of the same size (e.g. 512). In the bottom encoder that would be the word embeddings, but in other encoders, it would be the output of the encoder that's directly below (i.e. the previous encoder). The size of this list of vector is a hyperparameter that we can set, it could be the length of the longest sentence in our training dataset. After embedding, the following occurs for the first encoder:
+
+<img width="457" alt="encoder_1" src="https://github.com/cosmo-gb/Knowledge/assets/55383209/25cd4428-dab2-449b-94fb-ea95d5c669ff">
+
+A very important property of transformers is that each word/token flows through its own path in the encoder. There are dependencies between these paths in the self-attention layer. The feed-forward layer does not have those dependencies. Thus the various paths can be executed in parallel while flowing through the feed-forward layer. Here is an example of what is happening between the first and the second encoder:
+
+<img width="462" alt="encoder_2" src="https://github.com/cosmo-gb/Knowledge/assets/55383209/18b2c82e-0f2f-480f-bed4-5a07d71c4d09">
+
+### self-attention in details
+
+Self-attention mechanism can be splited in different steps:
+1. the **first step** is to create a *Query, Key* and *Value* vector for each word/token. These 3 vectors are created by multiplying the input vectors (the embedding for the first encoder) by 3 matrices that are trained during the process. The dimension of these vectors can be smaller than the dimension of the embedding vector. In our example, the dimensionality of these 3 vectors is 64, while the dimension of the embedding and encoder input/output is 512. The query, key and value vectors are abstractions useful to the self-attention mechanism. <img width="445" alt="Queries_Keys_Values" src="https://github.com/cosmo-gb/Knowledge/assets/55383209/751841af-9328-4121-bb2f-72e08718e6fc">
+2. the **second step** is to calculate a *score*. We need to score each word of the input sequence against each other. The score is computed with query and key vectors, as described as follows for the word thinking:
+<img width="385" alt="score_computed" src="https://github.com/cosmo-gb/Knowledge/assets/55383209/46c19efc-3a2b-4517-8fda-e85a09d21884">
+3. the **third step** is to compute the weighted sum of all the values, where the weight are the scores computed in the **second step**<img width="364" alt="weighted_sum" src="https://github.com/cosmo-gb/Knowledge/assets/55383209/8b922a94-3731-48d9-b46c-dff8f8c6dfab">
+This concludes the self-attention mechanism. The resulting vector is the one we can send along to the feed-forward neural network. All these steps can be done in matrix form:
+
+<img width="261" alt="QKV_matrices" src="https://github.com/cosmo-gb/Knowledge/assets/55383209/90fa5bee-9f99-45f3-9a15-1d03239e9c52">
+<img width="328" alt="score_and_sum" src="https://github.com/cosmo-gb/Knowledge/assets/55383209/cc857844-d7fb-470f-bed3-219c268491dc">
+
+
+<img width="445" alt="Queries_Keys_Values" src="https://github.com/cosmo-gb/Knowledge/assets/55383209/751841af-9328-4121-bb2f-72e08718e6fc">
+
 annotation of Attention is all you need & pytorch:
 http://nlp.seas.harvard.edu/2018/04/03/attention.html
 
-<img width="597" alt="transformer" src="https://github.com/cosmo-gb/Knowledge/assets/55383209/63a1e55f-9470-42f2-b599-2cafa37801e9">
 
 
 
