@@ -77,6 +77,31 @@ https://arxiv.org/abs/1301.3781
 
 ## Seq2seq
 
+a seq2seq model takes a sequence of items as input and outputs another sequence of items. In LLM, items are usually words. The model is composed of an **encoder** and a **decoder**.
+
+### encoder-decoder-context
+
+the **encoder** processes each item in the input sequence, it compiles the information it captures into a vector (called the **context**). After processing the entire input sequence, the **encoder** sends the **context** over to the **decoder**, which begins producing the output sequence item by item. 
+
+The context is a vector (an array of number) and you can set its sizewhen you set up your model. It is typically the number of hidden units in the encoder RNN. The encoder and the decoder are both RNN. An RNN takes two input vectors: a hidden state and an input. the RNN outputs two vectors: an hidden state and an output.
+
+We talk about time step in LLM, each time step corresponds to a word/item/token.
+
+Note that the last hidden state of the encoder is te contxt that is passed to the decoder.
+
+Attention is a technique that allows the models to deal with long sentences. It allows the models to focus on the relevant parts of the input sequence. Attention amlifies the important token of the input sequence.
+
+### attention
+
+Attention models differe from classical sequence-to-sequence models in 2 main ways:
+1. First the encoder passes a lot more data to the decoder, as it passes *all* thehidden states of the encoder to the decoder.
+2. Second the decoder does an extra step before producing its output. It takes all the hidden states of the encoder (each of them being associated with 1 token) and processes a weighted averaged normalized of them, pthus producing a single context vector of the shape of a single hidden state. In order to do so it proceeds as followed:
+
+    1. score each hidden state (i.e. assign a number to it)
+    2. apply softmax to each score
+    3. multiply each hidden state by the softmaxed score
+    4. sum up the weighted vectors 
+
 look at the papers:
 
 https://proceedings.neurips.cc/paper_files/paper/2014/file/a14ac55a4f27472c5d894ec1c3c743d2-Paper.pdf
@@ -85,7 +110,15 @@ https://arxiv.org/abs/1406.1078
 
 https://arxiv.org/abs/1409.1259
 
+look also at the jalammar github:
+https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/
+
+
 ## Attention
+
+attention introduced:
+https://arxiv.org/abs/1409.0473
+https://arxiv.org/abs/1508.04025
 
 Attention is all you need
 Vaswani et al 2017
