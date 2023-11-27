@@ -164,8 +164,20 @@ This concludes the self-attention mechanism. The resulting vector is the one we 
 <img width="261" alt="QKV_matrices" src="https://github.com/cosmo-gb/Knowledge/assets/55383209/90fa5bee-9f99-45f3-9a15-1d03239e9c52">
 <img width="328" alt="score_and_sum" src="https://github.com/cosmo-gb/Knowledge/assets/55383209/cc857844-d7fb-470f-bed3-219c268491dc">
 
+One can refine the previous self-attention mechanism with **multi-headed self-attention**. In this case, one start with many matrices for Q, K and V with different initialization. This work as follows (this is an example with 8 heads) (x is the embedding vector, while r is the output vector of an encoder):
 
-<img width="445" alt="Queries_Keys_Values" src="https://github.com/cosmo-gb/Knowledge/assets/55383209/751841af-9328-4121-bb2f-72e08718e6fc">
+<img width="479" alt="multi_head_self_attention" src="https://github.com/cosmo-gb/Knowledge/assets/55383209/24255350-ffab-4e3d-a9b4-45b94e076f21">
+
+### order in the sequence
+
+### residuals
+
+### decoder
+
+### final linear and softmax layer
+
+### loss function
+
 
 annotation of Attention is all you need & pytorch:
 http://nlp.seas.harvard.edu/2018/04/03/attention.html
