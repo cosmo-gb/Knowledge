@@ -93,6 +93,9 @@ Attention is a technique that allows the models to deal with long sentences. It 
 
 ### attention
 
+look also at the jalammar github:
+https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/
+
 Attention models differe from classical sequence-to-sequence models in 2 main ways:
 1. First the encoder passes a lot more data to the decoder, as it passes *all* thehidden states of the encoder to the decoder.
 2. Second the decoder does an extra step before producing its output. It takes all the hidden states of the encoder (each of them being associated with 1 token) and processes a weighted averaged normalized of them, pthus producing a single context vector of the shape of a single hidden state. In order to do so it proceeds as followed:
@@ -102,6 +105,18 @@ Attention models differe from classical sequence-to-sequence models in 2 main wa
     3. multiply each hidden state by the softmaxed score
     4. sum up the weighted vectors 
 
+Now let's bring altogether:
+1. The attention decoder RNN takes in the embedding of the <END> token and an initial decoder hidden state.
+2. The RNN processes its inputs, producing an output and a *new hidden state* vector. The output is discarded.
+3. Attention step: we use the encoder hidden states and the new hidden state vector to calculate a context vector for this time step.
+4. We concatenate the new hidden state and the context vector into one vector.
+5. We pass this vector through a feedforward neural network (one trained jointly with the model)
+6. The output of the feedfoward neural networks indicates the output word of this time step.
+7. Repeat for the next time steps
+
+In fact I am not sure what you should use instead of the <END> token at the next time step? The output vector of the encoder RNN for the second time step? first time step? the token f the input sequence directly?
+
+
 look at the papers:
 
 https://proceedings.neurips.cc/paper_files/paper/2014/file/a14ac55a4f27472c5d894ec1c3c743d2-Paper.pdf
@@ -110,8 +125,14 @@ https://arxiv.org/abs/1406.1078
 
 https://arxiv.org/abs/1409.1259
 
-look also at the jalammar github:
-https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/
+
+## Transformer
+
+annotation of Attention is all you need & pytorch:
+http://nlp.seas.harvard.edu/2018/04/03/attention.html
+
+<img width="597" alt="transformer" src="https://github.com/cosmo-gb/Knowledge/assets/55383209/63a1e55f-9470-42f2-b599-2cafa37801e9">
+
 
 
 ## Attention
