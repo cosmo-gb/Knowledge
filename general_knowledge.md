@@ -75,6 +75,16 @@ There are different kind of similarities: attributional similarity (e.g. synonym
 Mikolov, Chen, Corrado & Dean 2013
 https://arxiv.org/abs/1301.3781
 
+## Seq2seq
+
+look at the papers:
+
+https://proceedings.neurips.cc/paper_files/paper/2014/file/a14ac55a4f27472c5d894ec1c3c743d2-Paper.pdf
+
+https://arxiv.org/abs/1406.1078
+
+https://arxiv.org/abs/1409.1259
+
 ## Attention
 
 Attention is all you need
