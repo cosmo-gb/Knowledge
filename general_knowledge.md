@@ -13,6 +13,12 @@ https://arxiv.org/abs/2310.15165
 
 https://arxiv.org/abs/1602.05629
 
+
+## Complex Valued Neural Network:
+
+https://machine-learning-made-simple.medium.com/complex-valued-neural-networks-might-be-the-future-of-deep-learning-c51f71f4c835
+
+
 ## Calibration
 
 paper on the importance of calibration in sport betting prediction
