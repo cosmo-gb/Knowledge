@@ -215,6 +215,11 @@ very good, derived from scratch from intuition of what we need:
 https://www.youtube.com/watch?v=kWLed8o5M2Y
 
 
+transformer from scratch:
+https://levelup.gitconnected.com/understanding-transformers-from-start-to-end-a-step-by-step-math-example-16d4e64e6eb1
+
+
+
 # how to stay update in AI
 
 arxiv sanity preserver:
